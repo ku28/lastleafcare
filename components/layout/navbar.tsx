@@ -6,6 +6,7 @@ import {
   SheetFooter,
   SheetHeader,
   SheetTitle,
+  SheetTrigger,
 } from "../ui/sheet";
 import { Separator } from "../ui/separator";
 import {
@@ -18,6 +19,7 @@ import { Button } from "../ui/button";
 import Link from "next/link";
 import Image from "next/image";
 import { ToggleTheme } from "./toogle-theme";
+import { Menu } from "lucide-react";
 
 interface RouteProps {
   href: string;
@@ -44,6 +46,7 @@ const routeList: RouteProps[] = [
 ];
 
 export const Navbar = () => {
+  const [isOpen, setIsOpen] = React.useState(false);
   return (
     <header className="shadow-inner bg-opacity-15 w-[90%] md:w-[70%] lg:w-[75%] lg:max-w-screen-xl top-5 mx-auto sticky border border-secondary z-40 rounded-2xl flex justify-between items-center p-2 bg-card">
       <Link href="/" className="font-bold text-lg flex items-center">
@@ -58,7 +61,13 @@ export const Navbar = () => {
       </Link>
       {/* <!-- Mobile --> */}
       <div className="flex items-center lg:hidden">
-        <Sheet>
+        <Sheet open={isOpen} onOpenChange={setIsOpen}>
+        <SheetTrigger asChild>
+            <Menu
+              onClick={() => setIsOpen(!isOpen)}
+              className="cursor-pointer lg:hidden"
+            />
+          </SheetTrigger>
           <SheetContent
             side="left"
             className="flex flex-col justify-between rounded-tr-2xl rounded-br-2xl bg-card border-secondary"
@@ -83,6 +92,7 @@ export const Navbar = () => {
                 {routeList.map(({ href, label }) => (
                   <Button
                     key={href}
+                    onClick={() => setIsOpen(false)}
                     asChild
                     variant="ghost"
                     className="justify-start text-base"
