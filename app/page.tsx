@@ -8,12 +8,12 @@ import { TestimonialSection } from "@/components/layout/sections/testimonial";
 
 export const metadata = {
   title: "Last Leaf Care",
-  description: "Free Last Leaf Care landing page for developers",
+  description: "An Electrohomeopathic Centre in Faridkot, Punjab",
   openGraph: {
     type: "website",
     url: "https://github.com/ku28/lastleafcare.git",
     title: "Last Leaf Care",
-    description: "Free Last Leaf Care landing page for developers",
+    description: "An Electrohomeopathic Centre in Faridkot, Punjab",
     images: [
       {
         url: "https://res.cloudinary.com/dwgsflt8h/image/upload/v1750161266/logo_isxw3s.png",
@@ -27,7 +27,7 @@ export const metadata = {
     card: "summary_large_image",
     site: "https://github.com/ku28/lastleafcare.git",
     title: "Last Leaf Care",
-    description: "Free Last Leaf Care landing page for developers",
+    description: "An Electrohomeopathic Centre in Faridkot, Punjab",
     images: [
       "https://res.cloudinary.com/dwgsflt8h/image/upload/v1750161266/logo_isxw3s.png",
     ],
