@@ -28,7 +28,7 @@ export default function AboutPage() {
               conditions with the help of natural substances and herbs/shurbs without any side effects. LAST LEAF CARE Electrohomeopathy
               Centre gives you all forms of assurance for safe and effective treatment help. We have a team of experienced and well-equipped
               doctors at our back (E.D.M.A.) who help maintain a healthy lifestyle with proper guidance and well-researched diet chart as per
-              patient's requirements. Our therapies focus more on patient's comfort to help them treat well both physically and psychologically.
+              patient&apos;s requirements. Our therapies focus more on patient&apos;s comfort to help them treat well both physically and psychologically.
               LAST LEAF CARE Electrohomeopathy Centre provide expertise consultation and customized treatment help by understanding your health
               issues and help to cure them naturally with Electrohomeopathic remedies.
             </CardContent>

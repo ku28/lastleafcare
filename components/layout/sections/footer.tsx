@@ -62,7 +62,7 @@ export const FooterSection = () => {
 
             <div>
               <Link href="#" className="opacity-60 hover:opacity-100">
-                Bell's palsy
+                Bell&apos;s palsy
               </Link>
             </div>
 
