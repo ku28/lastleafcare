@@ -31,7 +31,7 @@ const formSchema = z.object({
   firstName: z.string().min(2).max(255),
   lastName: z.string().min(2).max(255),
   email: z.string().email(),
-  subject: z.string().min(2).max(255),
+  PhoneNumber: z.string().regex(/^\d{10}$/, "Please enter a valid 10-digit phone number"),
   message: z.string(),
 });
 
@@ -42,18 +42,22 @@ export const ContactSection = () => {
       firstName: "",
       lastName: "",
       email: "",
-      subject: "",
+      PhoneNumber: "",
       message: "",
     },
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    const { firstName, lastName, email, subject, message } = values;
+    const { firstName, lastName, email, PhoneNumber, message } = values;
     console.log(values);
+    const formattedMessage = `Hello, I am ${firstName} ${lastName}%0A%0A` +
+      `My Email: ${email}%0A` +
+      `My Phone: ${PhoneNumber}%0A%0A` +
+      `Message: ${message}`;
 
-    const mailToLink = `mailto:lastleafcare@gmail.com?subject=${subject}&body=Hello I am ${firstName} ${lastName}, my Email is ${email}. %0D%0A${message}`;
-
-    window.location.href = mailToLink;
+    const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER;
+    const whatsappLink = `https://wa.me/${whatsappNumber}?text=${formattedMessage}`;
+    window.open(whatsappLink, '_blank');
   }
 
   return (
@@ -170,37 +174,21 @@ export const ContactSection = () => {
                 <div className="flex flex-col gap-1.5">
                   <FormField
                     control={form.control}
-                    name="subject"
+                    name="PhoneNumber"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Subject</FormLabel>
-                        <Select
-                          onValueChange={field.onChange}
-                          defaultValue={field.value}
-                        >
-                          <FormControl>
-                            <SelectTrigger>
-                              <SelectValue placeholder="Select a subject" />
-                            </SelectTrigger>
-                          </FormControl>
-                          <SelectContent>
-                            <SelectItem value="Request for Appointment">
-                              Request for Appointment
-                            </SelectItem>
-                            <SelectItem value="Follow-Up">
-                              Follow-Up on Lab Test Results
-                            </SelectItem>
-                            <SelectItem value="Inquiry About Availablity">
-                              Inquiry About Availablity
-                            </SelectItem>
-                            <SelectItem value="Rescheduling My Upcoming Appointment">
-                              Rescheduling My Upcoming Appointment
-                            </SelectItem>
-                            <SelectItem value="Prescription Refill Request">
-                              Prescription Refill Request
-                            </SelectItem>
-                          </SelectContent>
-                        </Select>
+                        <FormLabel>Mobile Number</FormLabel>
+                        <FormControl>
+                          <Input
+                            type="tel"
+                            placeholder="Mobile No."
+                            maxLength={10}
+                            pattern="[0-9]*"
+                            inputMode="numeric"
+                            className="[appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                            {...field}
+                          />
+                        </FormControl>
                         <FormMessage />
                       </FormItem>
                     )}
