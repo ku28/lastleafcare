@@ -10,11 +10,12 @@ interface TeamProps {
 export default function GalleryPage() {
     const teamList: TeamProps[] = [
         {
-            imageUrl: "https://res.cloudinary.com/dwgsflt8h/image/upload/v1750164667/a2_nuuwo0.png",
+            imageUrl: 
+                "https://res.cloudinary.com/dwgsflt8h/image/upload/v1750164667/a2_nuuwo0.png",
         },
         {
             imageUrl:
-                "https://res.cloudinary.com/dwgsflt8h/image/upload/v1750164667/g4_bfky46.png",
+                "https://res.cloudinary.com/dwgsflt8h/image/upload/v1750164667/a3_v6ic6r.png",
         },
         {
             imageUrl:
